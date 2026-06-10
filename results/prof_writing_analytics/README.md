@@ -12,7 +12,7 @@ The text of over 1 million comments is parsed against an extensive **Austrian Po
 
 A comment is flagged as Left or Right if its text strictly contains more keywords from one ideology than the other.
 
-### 2. The 80% Ideological Consistency Threshold
+### 2. The 68% (sigma) Ideological Consistency Threshold
 Users are not assigned a political spectrum lightly. We enforce an **extreme ideological consistency threshold**.
 For a user to be classified as a "Highly Partisan Left-Wing Writer" or a "Highly Partisan Right-Wing Writer", **more than 80%** of their politically-relevant comments must lean strictly in that one direction. Users who frequently jump back and forth are filtered out.
 
