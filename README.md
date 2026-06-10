@@ -1,4 +1,4 @@
-# Million Post Analytics
+# WIP: Million Post Analytics
 
 This project analyzes the **Million Post Corpus**, an annotated dataset of user comments from the Austrian newspaper *Der Standard*.
 
