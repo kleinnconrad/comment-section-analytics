@@ -1,6 +1,11 @@
 # Million Post Analytics
 
-This project analyzes a dataset containing articles, posts, and annotations from a newspaper community. 
+This project analyzes the **Million Post Corpus**, an annotated dataset of user comments from the Austrian newspaper *Der Standard*.
+
+### Dataset Statistics
+- **Source**: *Der Standard* (Austrian daily broadsheet)
+- **Time Span**: April 23, 2003 to July 21, 2016 (13+ years of data)
+- **Size**: 12,087 Articles and 1,011,773 Posts 
 
 ## Database Schema (Entity Relationship Diagram)
 
