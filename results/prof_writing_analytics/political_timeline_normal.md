@@ -1,6 +1,6 @@
 # Political Spectrum Targets By Year (NORMAL USERS)
 
-Total Users Classified: **4,596**
+Total Users Classified: **4,987**
 
 ## Total Dataset
 ![Total](./political_spectrum_targets_normal_total.png)
