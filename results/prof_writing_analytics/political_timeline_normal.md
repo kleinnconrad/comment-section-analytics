@@ -1,10 +1,18 @@
 # Political Spectrum Targets By Year (NORMAL USERS)
 
-Total Users Classified: **6,683**
+Total Users Classified: **2,989**
 
 ## Total Dataset
 ![Total](./political_spectrum_targets_normal_total.png)
 
+## 2012
+![2012](./political_spectrum_targets_normal_2012.png)
+
+## 2013
+![2013](./political_spectrum_targets_normal_2013.png)
+
+## 2014
+![2014](./political_spectrum_targets_normal_2014.png)
 
 ## 2015
 ![2015](./political_spectrum_targets_normal_2015.png)
