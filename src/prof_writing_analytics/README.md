@@ -38,3 +38,9 @@ Run the pipeline in order:
 
 ## Evaluation
 Since there are no definitive ground truth labels for "astroturfers", we use the `Newspaper_Staff` table as a proxy for Professional Writers. The evaluation scripts compute precision and recall metrics on how well our unsupervised heuristics overlap with the known professional staff. Note that precision may naturally be low, because successful astroturfers (True Positives in reality) are not in the Staff table (False Positives in our evaluation proxy).
+
+## Execution Performance
+This pipeline analyzes over 1,000,000 posts. Due to the heavy NLP calculations (VADER Sentiment and Sentence-Transformers embeddings), performance is heavily dependent on hardware.
+
+- **Hardware**: 11th Gen Intel(R) Core(TM) i7-1195G7 @ 2.90GHz with 16 GB RAM
+- **Execution Time**: ~1.5 hours (with the semantic similarity active user threshold set to >= 50 posts)
