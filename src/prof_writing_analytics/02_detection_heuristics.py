@@ -45,10 +45,10 @@ def main():
     ).astype(int)
     
     # 3. Content Analysis
-    # Extreme copy-pasting (high similarity) OR robotic sentiment (low variance) with high formality
+    # Copy-pasting (moderate similarity) OR robotic sentiment (low variance) with high formality
     p80_formality = users['avg_formality'].quantile(0.80)
     users['is_professional_content'] = (
-        (users['semantic_similarity'] >= 0.7) |
+        (users['semantic_similarity'] >= 0.5) |
         ((users['sentiment_std'] <= 0.1) & (users['avg_formality'] >= p80_formality) & (users['total_posts'] >= 5))
     ).astype(int)
     

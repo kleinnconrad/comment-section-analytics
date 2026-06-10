@@ -17,8 +17,9 @@ Users are not assigned a political spectrum lightly. We enforce an **extreme ide
 For a user to be classified as a "Highly Partisan Left-Wing Writer" or a "Highly Partisan Right-Wing Writer", **more than 80%** of their politically-relevant comments must lean strictly in that one direction. Users who frequently jump back and forth are filtered out.
 
 ### 3. Target Grouping & Timelines
-Once a user is confidently classified as a strict partisan, their comments are mapped back to the specific `Path` (category) of the newspaper they were commenting on. 
-This allows us to see exactly *what* these partisan groups care about and target. The results are generated both in `total` across the entire corpus, and sliced chronologically `by year`.
+Once a user is confidently classified as a strict partisan, **all of their comments** (including neutral ones) are mapped back to the specific `Path` (category) of the newspaper they were commenting on. In the generated reports, every comment written by a classified user is counted as a comment from that respective ideological group. 
+
+This user-centric approach allows us to see exactly *what* these partisan groups care about and target overall, even when they participate in seemingly non-political discussions without explicitly using framing keywords. The results are generated both in `total` across the entire corpus, and sliced chronologically `by year`.
 
 ## Output Reports
 
