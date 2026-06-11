@@ -6,7 +6,7 @@ import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from src.config.political_config import POLITICAL_LEXICON, POLITICAL_MAJORITY_THRESHOLD
+from src.config.political_config import CURRENT_LEXICON, POLITICAL_MAJORITY_THRESHOLD
 import re
 
 def classify_text_intent(text):
@@ -14,8 +14,8 @@ def classify_text_intent(text):
         return 'neutral'
     text = str(text).lower()
     
-    left_score = sum(1 for word in POLITICAL_LEXICON['left_wing'] if re.search(r'\b' + re.escape(word) + r'\b', text))
-    right_score = sum(1 for word in POLITICAL_LEXICON['right_wing'] if re.search(r'\b' + re.escape(word) + r'\b', text))
+    left_score = sum(1 for word in CURRENT_LEXICON['left_wing'] if re.search(r'\b' + re.escape(word) + r'\b', text))
+    right_score = sum(1 for word in CURRENT_LEXICON['right_wing'] if re.search(r'\b' + re.escape(word) + r'\b', text))
     
     if left_score > 0 and left_score > right_score:
         return 'left'

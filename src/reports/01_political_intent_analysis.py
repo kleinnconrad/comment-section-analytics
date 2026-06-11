@@ -6,7 +6,7 @@ import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from src.config.political_config import POLITICAL_LEXICON, POLITICAL_MAJORITY_THRESHOLD
+from src.config.political_config import CURRENT_LEXICON, POLITICAL_MAJORITY_THRESHOLD
 
 import re
 
@@ -16,8 +16,8 @@ def classify_text_intent(text):
     text = str(text).lower()
     
     # Use regex to find words inside strings
-    left_score = sum(1 for word in POLITICAL_LEXICON['left_wing'] if re.search(r'\b' + re.escape(word) + r'\b', text))
-    right_score = sum(1 for word in POLITICAL_LEXICON['right_wing'] if re.search(r'\b' + re.escape(word) + r'\b', text))
+    left_score = sum(1 for word in CURRENT_LEXICON['left_wing'] if re.search(r'\b' + re.escape(word) + r'\b', text))
+    right_score = sum(1 for word in CURRENT_LEXICON['right_wing'] if re.search(r'\b' + re.escape(word) + r'\b', text))
     
     # We only count if there is a STRICT difference
     if left_score > 0 and left_score > right_score:
@@ -97,7 +97,7 @@ def run():
     plt.close()
 
     print("Generating charts by Year...")
-    years = sorted(final_df['Year'].dropna().unique())
+    years = [2015, 2016]
     
     md_content = f"# Political Spectrum Targets By Year\n\nTotal Users Classified: **{len(final_spectrum):,}**\n\n## Total Dataset\n![Total](./political_spectrum_targets_total.png)\n\n"
     
