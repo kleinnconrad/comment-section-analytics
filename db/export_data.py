@@ -6,6 +6,10 @@ def export_database_to_csv(db_path, output_folder):
     """
     Reads an SQLite database, converts each table to a Pandas DataFrame,
     and saves them as CSV files in the specified output folder.
+    
+    Args:
+        db_path (str): The path to the SQLite database.
+        output_folder (str): The folder to output the CSVs.
     """
     # Create the output data folder if it doesn't exist
     os.makedirs(output_folder, exist_ok=True)

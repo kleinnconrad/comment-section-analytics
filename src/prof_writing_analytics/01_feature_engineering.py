@@ -12,6 +12,15 @@ warnings.filterwarnings('ignore')
 tqdm.pandas()
 
 def safe_extract_topic(path):
+    """
+    Safely extract the topic from an article path.
+
+    Args:
+        path (str): The path string from the article.
+
+    Returns:
+        str: The extracted topic.
+    """
     if pd.isna(path):
         return "Unknown"
     parts = str(path).split('/')
@@ -20,6 +29,15 @@ def safe_extract_topic(path):
     return parts[0]
 
 def calc_formality(text):
+    """
+    Calculate the formality score of a text based on capitalization and punctuation.
+
+    Args:
+        text (str): The input text.
+
+    Returns:
+        float: The formality score.
+    """
     if pd.isna(text) or len(text) == 0:
         return 0.0
     text = str(text)
@@ -28,6 +46,9 @@ def calc_formality(text):
     return (caps + punct) / len(text)
 
 def main():
+    """
+    Execute the feature engineering pipeline.
+    """
     script_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "data")
     output_dir = os.path.join(data_dir, "prof_writing_analytics")
@@ -67,7 +88,17 @@ def main():
     analyzer = SentimentIntensityAnalyzer()
     
     def get_vader(text):
-        if pd.isna(text): return 0.0
+        """
+        Calculate VADER sentiment compound score for a text.
+
+        Args:
+            text (str): The text to analyze.
+
+        Returns:
+            float: The VADER compound sentiment score.
+        """
+        if pd.isna(text):
+            return 0.0
         return analyzer.polarity_scores(str(text))['compound']
     
     merged['Body_str'] = merged['Body'].fillna('')
@@ -102,6 +133,15 @@ def main():
     # Topic Entropy
     print("Calculating Topic Entropy...")
     def calc_entropy(x):
+        """
+        Calculate topic entropy.
+
+        Args:
+            x (pd.Series): A series of topics.
+
+        Returns:
+            float: The calculated entropy.
+        """
         counts = x.value_counts()
         return entropy(counts) if len(counts) > 1 else 0.0
     

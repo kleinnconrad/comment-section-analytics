@@ -1,10 +1,12 @@
 import pandas as pd
-import numpy as np
 import json
 import os
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
 def main():
+    """
+    Evaluate the performance of detection heuristics against ground truth.
+    """
     script_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "data")
     output_dir = os.path.join(data_dir, "prof_writing_analytics")

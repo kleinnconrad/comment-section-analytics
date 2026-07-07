@@ -9,7 +9,7 @@ data/
 venv/
 env/
 .venv/
-.env/
+.env
 
 # Python Cache
 __pycache__/

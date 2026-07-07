@@ -10,6 +10,15 @@ from src.config.political_config import CURRENT_LEXICON, POLITICAL_MAJORITY_THRE
 import re
 
 def classify_text_intent(text):
+    """
+    Classify the political intent of a given text as left, right, or neutral.
+    
+    Args:
+        text (str): The input text to classify.
+        
+    Returns:
+        str: The classified intent.
+    """
     if not isinstance(text, str):
         return 'neutral'
     text = str(text).lower()
@@ -24,6 +33,9 @@ def classify_text_intent(text):
     return 'neutral'
 
 def run():
+    """
+    Run the unified political intent comparison between astroturfers and normal users.
+    """
     print("Loading databases for unified political intent comparison...")
     conn = sqlite3.connect('db/corpus.sqlite3')
     preds = pd.read_csv('data/prof_writing_analytics/predictions.csv')
@@ -42,8 +54,10 @@ def run():
     
     # Group by User to find ideological consistency
     user_intent = pol_posts.groupby(['ID_User', 'Intent']).size().unstack(fill_value=0)
-    if 'left' not in user_intent.columns: user_intent['left'] = 0
-    if 'right' not in user_intent.columns: user_intent['right'] = 0
+    if 'left' not in user_intent.columns:
+        user_intent['left'] = 0
+    if 'right' not in user_intent.columns:
+        user_intent['right'] = 0
     
     user_intent['total_pol'] = user_intent['left'] + user_intent['right']
     user_intent['left_ratio'] = user_intent['left'] / user_intent['total_pol']
@@ -135,7 +149,7 @@ def run():
     plt.close()
 
     print("Generating comprehensive comparison markdown report...")
-    md_report = f"""# Political Intent: Astroturfers vs Normal Users
+    md_report = """# Political Intent: Astroturfers vs Normal Users
 
 These reports directly compare the ideological consistency and exact targets of Professional Writers against normal users.
 

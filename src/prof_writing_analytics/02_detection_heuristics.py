@@ -1,8 +1,16 @@
 import pandas as pd
-import numpy as np
 import os
 
 def safe_extract_topic(path):
+    """
+    Safely extract the topic from an article path.
+
+    Args:
+        path (str): The path string from the article.
+
+    Returns:
+        str: The extracted topic.
+    """
     if pd.isna(path):
         return "Unknown"
     parts = str(path).split('/')
@@ -11,6 +19,9 @@ def safe_extract_topic(path):
     return parts[0]
 
 def main():
+    """
+    Apply heuristics to detect professional writers.
+    """
     script_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir = os.path.join(os.path.dirname(os.path.dirname(script_dir)), "data")
     output_dir = os.path.join(data_dir, "prof_writing_analytics")
