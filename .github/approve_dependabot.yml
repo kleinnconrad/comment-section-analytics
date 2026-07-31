@@ -1,6 +1,9 @@
 name: Auto Approve Dependabot PRs
 
-on: pull_request_target
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch: # Adding this makes it visible in the Actions tab
 
 jobs:
   auto-approve:
